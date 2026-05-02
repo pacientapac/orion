@@ -294,18 +294,18 @@ footer p{font-size:.82rem;color:var(--fog)}
     <div class="fleet-grid">
       <div class="fleet-card" id="fleet-1">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2019_Skoda_Superb_SE_L_Executive_2.0_Front.jpg/1280px-2019_Skoda_Superb_SE_L_Executive_2.0_Front.jpg"
-          alt="Skoda Superb" onerror="cardError(this)">
+          alt="Skoda Superb" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
         <div class="fleet-card-label">Škoda Superb</div>
       </div>
       <div class="fleet-card" id="fleet-2">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mercedes-Benz_W213_E_350_d_%28facelift%2C_blue%29%2C_front_8.28.19.jpg/1280px-Mercedes-Benz_W213_E_350_d_%28facelift%2C_blue%29%2C_front_8.28.19.jpg"
-          alt="Mercedes E-Class" onerror="cardError(this)">
+          alt="Mercedes E-Class" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
         <div class="fleet-card-label">Mercedes E-Class</div>
       </div>
       <div class="fleet-card empty" id="fleet-3">
-        <img src="images/pic3.jpg" alt="Автомобил 3" onerror="cardError(this)">
+        <img src="images/pic3.jpg" alt="Автомобил 3" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
         <div class="fleet-card-label" data-t="fleet_car3">Нашият флот</div>
       </div>
@@ -390,7 +390,7 @@ footer p{font-size:.82rem;color:var(--fog)}
 
 <script>
 const CONFIG = {
-  SHEETS_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6fhzt6QxY_XctV4wWxUHUS7l08pXBXGzGYW8_BL2jEvpjG3eYJCaAwNRzsQpEg6HmvEHQ66mSHgv6/pub?gid=1021393240&single=true&output=csv',
+  SHEETS_URL: 'ВАШИЯТ_GOOGLE_SHEETS_CSV_ЛИНК_ТУК',
   PHONE: '359899800800',
   WA_BG: 'Здравейте, искам да направя запитване за трансфер.',
   WA_EN: 'Hello, I would like to enquire about a transfer.',
@@ -574,12 +574,16 @@ function renderRoutes(l){
 
 function parseCSV(text){
   const lines=text.trim().split('\n');
-  const headers=lines[0].split(',').map(h=>h.trim().replace(/"/g,''));
-  return lines.slice(1).map(line=>{
+  // Намери реда с Маршрут_BG — може да не е първи ред
+  let headerIdx=lines.findIndex(l=>l.includes('Маршрут_BG'));
+  if(headerIdx<0)headerIdx=0;
+  const headers=lines[headerIdx].split(',').map(h=>h.trim().replace(/"/g,'').replace(/\s*\(.*?\)/g,''));
+  return lines.slice(headerIdx+1).map(line=>{
+    if(!line.trim())return null;
     const cols=line.split(',').map(c=>c.trim().replace(/"/g,''));
     const obj={};headers.forEach((h,i)=>obj[h]=cols[i]||'');
     return obj;
-  });
+  }).filter(Boolean);
 }
 
 function loadPrices(){
@@ -609,18 +613,6 @@ function setLang(l,btn){
   document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   applyT(l);
-}
-
-// Fleet: скрий секцията ако всички карти са empty
-function cardError(img){
-  img.closest('.fleet-card').classList.add('empty');
-  const cards=document.querySelectorAll('#fleet-section .fleet-card');
-  const allEmpty=[...cards].every(c=>c.classList.contains('empty'));
-  if(allEmpty){
-    document.getElementById('fleet-section').classList.add('all-empty');
-    const sep=document.getElementById('fleet-sep');
-    if(sep)sep.style.display='none';
-  }
 }
 
 // Scroll observer
