@@ -293,19 +293,19 @@ footer p{font-size:.82rem;color:var(--fog)}
     <h2 class="sec-title" data-t="fleet_title">Представителни <em>автомобили</em></h2>
     <div class="fleet-grid">
       <div class="fleet-card" id="fleet-1">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2019_Skoda_Superb_SE_L_Executive_2.0_Front.jpg/1280px-2019_Skoda_Superb_SE_L_Executive_2.0_Front.jpg"
-          alt="Skoda Superb" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+        <img src="pics/pic1.jpg"
+          alt="Автомобил 1" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
-        <div class="fleet-card-label">Škoda Superb</div>
+        <div class="fleet-card-label" data-t="fleet_car1">Нашият флот</div>
       </div>
       <div class="fleet-card" id="fleet-2">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mercedes-Benz_W213_E_350_d_%28facelift%2C_blue%29%2C_front_8.28.19.jpg/1280px-Mercedes-Benz_W213_E_350_d_%28facelift%2C_blue%29%2C_front_8.28.19.jpg"
-          alt="Mercedes E-Class" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+        <img src="pics/pic2.jpg"
+          alt="Автомобил 2" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
         <div class="fleet-card-label">Mercedes E-Class</div>
       </div>
       <div class="fleet-card empty" id="fleet-3">
-        <img src="images/pic3.jpg" alt="Автомобил 3" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+        <img src="pics/pic3.jpg" alt="Автомобил 3" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
         <div class="fleet-card-label" data-t="fleet_car3">Нашият флот</div>
       </div>
@@ -415,7 +415,7 @@ const T = {
     cta_ask_wa:'Запитване в WhatsApp',cta_call_short:'+359 899 800 800',
     why_label:'Защо нас',why_title:'Над <em>10 години</em> опит в трансферите',
     why1:'години опит',why2:'доволни клиента',why3:'наличност',why4:'представителни автомобили',why5:'следим полетите в реално време',
-    fleet_label:'Нашият флот',fleet_title:'Представителни <em>автомобили</em>',fleet_car3:'Нашият флот',
+    fleet_label:'Нашият флот',fleet_title:'Представителни <em>автомобили</em>',fleet_car1:'Нашият флот',fleet_car2:'Нашият флот',fleet_car3:'Нашият флот',
     svc_label:'Услуги',svc_title:'Какво <em>предлагаме</em>',
     s1h:'Луксозни автомобили',s1p:'Пътувайте в комфортни представителни автомобили с климатик и всички удобства.',
     s2h:'Летищен трансфер',s2p:'Посрещане и изпращане на летище Бургас, Варна, София, Истанбул и Букурещ. Следим полетите в реално време.',
@@ -467,7 +467,7 @@ const T = {
     cta_ask_wa:'Enquire on WhatsApp',cta_call_short:'+359 899 800 800',
     why_label:'Why us',why_title:'Over <em>10 years</em> of experience',
     why1:'years of experience',why2:'happy clients',why3:'availability',why4:'premium vehicles',why5:'real-time flight tracking',
-    fleet_label:'Our fleet',fleet_title:'Premium <em>vehicles</em>',fleet_car3:'Our fleet',
+    fleet_label:'Our fleet',fleet_title:'Premium <em>vehicles</em>',fleet_car1:'Our fleet',fleet_car2:'Our fleet',fleet_car3:'Our fleet',
     svc_label:'Services',svc_title:'What we <em>offer</em>',
     s1h:'Luxury vehicles',s1p:'Travel in comfortable premium cars with air conditioning and all amenities.',
     s2h:'Airport transfer',s2p:'Meet & greet at Burgas, Varna, Sofia, Istanbul and Bucharest airports. Real-time flight tracking.',
@@ -502,7 +502,7 @@ const T = {
     cta_ask_wa:'Запрос в WhatsApp',cta_call_short:'+359 899 800 800',
     why_label:'Почему мы',why_title:'Более <em>10 лет</em> опыта',
     why1:'лет опыта',why2:'довольных клиентов',why3:'доступность',why4:'представительные автомобили',why5:'отслеживаем рейсы в реальном времени',
-    fleet_label:'Наш парк',fleet_title:'Представительные <em>автомобили</em>',fleet_car3:'Наш парк',
+    fleet_label:'Наш парк',fleet_title:'Представительные <em>автомобили</em>',fleet_car1:'Наш парк',fleet_car2:'Наш парк',fleet_car3:'Наш парк',
     svc_label:'Услуги',svc_title:'Что мы <em>предлагаем</em>',
     s1h:'Автомобили премиум-класса',s1p:'Путешествуйте в комфортных представительных автомобилях с кондиционером.',
     s2h:'Трансфер из аэропорта',s2p:'Встреча и проводы в аэропортах Бургаса, Варны, Софии, Стамбула и Бухареста.',
@@ -530,6 +530,19 @@ function waUrl(l){
   return `https://wa.me/${CONFIG.PHONE}?text=${encodeURIComponent(txt)}`;
 }
 
+function isMobile(){
+  return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+}
+function updateViberLinks(){
+  const viberUrl = isMobile()
+    ? 'viber://chat?number=%2B359899800800'
+    : 'https://viber.com/';
+  ['hero-vb','ct-vb'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.href=viberUrl;
+  });
+  document.querySelectorAll('.sb-vb').forEach(el=>el.href=viberUrl);
+}
 function updateWaLinks(l){
   const url=waUrl(l);
   ['hero-wa','routes-wa','ct-wa','wa-float','sticky-wa'].forEach(id=>{
@@ -583,7 +596,17 @@ function parseCSV(text){
     const cols=line.split(',').map(c=>c.trim().replace(/"/g,''));
     const obj={};headers.forEach((h,i)=>obj[h]=cols[i]||'');
     return obj;
-  }).filter(Boolean);
+  }).filter(r=>{
+    if(!r)return false;
+    const name=(r['Маршрут_BG']||'').trim();
+    const aktiv=(r['Активна']||'').trim().toUpperCase();
+    // Валиден ред: има маршрут, без emoji, без инструкции, Активна е ДА или НЕ
+    if(!name)return false;
+    if(!/^[А-Яа-яA-Za-z]/.test(name))return false;  // трябва да започва с буква
+    if(name.length>60)return false;
+    if(aktiv!=='ДА'&&aktiv!=='НЕ'&&aktiv!=='DA'&&aktiv!=='NE'&&aktiv!=='YES'&&aktiv!=='NO')return false;
+    return true;
+  });
 }
 
 function loadPrices(){
@@ -629,6 +652,7 @@ function observeEls(){
 applyT(lang);
 loadPrices();
 observeEls();
+updateViberLinks();
 </script>
 </body>
 </html>
