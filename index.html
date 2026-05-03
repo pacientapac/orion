@@ -327,17 +327,17 @@ footer p{font-size:.82rem;color:var(--fog)}
     <div class="fleet-grid">
       <div class="fleet-card" onclick="openLightbox(this)">
         <img src="pics/pic1.jpg" alt="Автомобил 1"
-          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
+          onerror="this.closest('.fleet-card').classList.add('empty');var all=Array.from(document.querySelectorAll('#fleet-section .fleet-card'));if(all.every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
       </div>
       <div class="fleet-card" onclick="openLightbox(this)">
         <img src="pics/pic2.jpg" alt="Автомобил 2"
-          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
+          onerror="this.closest('.fleet-card').classList.add('empty');var all=Array.from(document.querySelectorAll('#fleet-section .fleet-card'));if(all.every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
       </div>
       <div class="fleet-card" onclick="openLightbox(this)">
         <img src="pics/pic3.jpg" alt="Автомобил 3"
-          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
+          onerror="this.closest('.fleet-card').classList.add('empty');var all=Array.from(document.querySelectorAll('#fleet-section .fleet-card'));if(all.every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
         <div class="fleet-card-overlay"></div>
       </div>
     </div>
@@ -740,16 +740,6 @@ function closeLightbox(){
 }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeLightbox(); });
 
-// ── Fleet check ──
-function checkFleet(){
-  const cards = document.querySelectorAll('#fleet-section .fleet-card');
-  if([...cards].every(c=>c.classList.contains('empty'))){
-    document.getElementById('fleet-section').classList.add('all-empty');
-    const s = document.getElementById('fleet-sep');
-    if(s) s.style.display = 'none';
-  }
-}
-
 // ── Messenger links ──
 function isMobile(){ return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent); }
 
@@ -867,7 +857,7 @@ function observeEls(){
 
 
 // ── FAQ toggle ──
-function toggleFaq(btn){
+window.toggleFaq = function(btn){
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.contains('open');
   // Затвори всички
