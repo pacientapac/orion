@@ -197,6 +197,21 @@ footer p{font-size:.82rem;color:var(--fog)}
   .hero-routes{margin-bottom:1.5rem}
   .trust-row{margin-top:1.2rem}
 }
+
+/* FAQ */
+.faq-section{background:var(--ink)}
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:2rem;border:1px solid rgba(201,168,76,.12);border-radius:var(--r);overflow:hidden}
+.faq-item{border-bottom:1px solid rgba(201,168,76,.08)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.75rem;background:transparent;border:none;cursor:pointer;text-align:left;transition:background .2s;font-family:'Outfit',sans-serif}
+.faq-q:hover{background:rgba(201,168,76,.04)}
+.faq-q.open{background:rgba(201,168,76,.06)}
+.faq-q-text{font-size:1rem;font-weight:600;color:var(--snow);line-height:1.4}
+.faq-icon{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);flex-shrink:0;transition:transform .25s;line-height:1;width:1.2rem;text-align:center}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .25s ease}
+.faq-a.open{max-height:300px}
+.faq-a-inner{padding:.1rem 1.75rem 1.25rem;font-size:.95rem;color:var(--fog);line-height:1.75}
 </style>
 </head>
 <body>
@@ -373,6 +388,76 @@ footer p{font-size:.82rem;color:var(--fog)}
 
 <div class="sep"></div>
 
+
+<div class="sep"></div>
+
+<!-- FAQ -->
+<section class="inner faq-section">
+  <div class="container">
+    <div class="sec-label" data-t="faq_label">Често задавани въпроси</div>
+    <h2 class="sec-title" data-t="faq_title">Имате <em>въпроси?</em></h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq1_q">Как се извършва плащането?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq1_a">Изисква се предварителен депозит за потвърждение на резервацията. Остатъкът се заплаща в брой при качване.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq2_q">На какви езици говорят шофьорите?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq2_a">Шофьорите говорят български и английски на разговорно ниво — достатъчно за комфортна комуникация по време на пътуването.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq3_q">Колко пътници и багаж се побират?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq3_a">Автомобилите са комби клас и приемат до 4 пътници с 4 куфара комфортно.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq4_q">Колко отнема пътуването?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq4_a">Бургас–Варна е около 1:45–2:00 ч. При по-дълги маршрути е включена кратка почивка. През летния сезон и празничните дни трафикът може да удължи времето — особено за Истанбул и Букурещ.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq5_q">Изчаквате ли при закъснение на полет?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq5_a">Следим полетите в реално време и адаптираме часа на пристигане автоматично. При разумно закъснение изчакваме без допълнително заплащане. При по-сериозно забавяне или отменен полет — моля свържете се с нас своевременно за да намерим най-доброто решение заедно.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq6_q">Как да намеря шофьора на летището?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq6_a">За да избегнем летищни такси за паркиране — напишете ни съобщение в WhatsApp или Viber в момента в който вземете багажа си и излезете пред летището. Шофьорът ще пристигне в рамките на минути.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-t="faq7_q">Колко предварително да резервирам?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-t="faq7_a">Препоръчваме резервация от няколко дни до седмица предварително — особено за дълги маршрути и в натоварени периоди.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="inner contact-section" id="contact">
   <div class="container">
@@ -482,6 +567,21 @@ const T = {
     ct_hours_note:'08:00–18:00 · всеки ден',
     f_sub:'Трансфери | Бургас, България', f_copy:'© OrionTaxi.com — Бургас. Всички права запазени.',
     cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Обади се',
+    faq_label:'Често задавани въпроси', faq_title:'Имате <em>въпроси?</em>',
+    faq1_q:'Как се извършва плащането?',
+    faq1_a:'Изисква се предварителен депозит за потвърждение на резервацията. Остатъкът се заплаща в брой при качване.',
+    faq2_q:'На какви езици говорят шофьорите?',
+    faq2_a:'Шофьорите говорят български и английски на разговорно ниво — достатъчно за комфортна комуникация по време на пътуването.',
+    faq3_q:'Колко пътници и багаж се побират?',
+    faq3_a:'Автомобилите са комби клас и приемат до 4 пътници с 4 куфара комфортно.',
+    faq4_q:'Колко отнема пътуването?',
+    faq4_a:'Бургас–Варна е около 1:45–2:00 ч. При по-дълги маршрути е включена кратка почивка. През летния сезон и празничните дни трафикът може да удължи времето — особено за Истанбул и Букурещ.',
+    faq5_q:'Изчаквате ли при закъснение на полет?',
+    faq5_a:'Следим полетите в реално време и адаптираме часа на пристигане автоматично. При разумно закъснение изчакваме без допълнително заплащане. При по-сериозно забавяне или отменен полет — моля свържете се с нас своевременно за да намерим най-доброто решение заедно.',
+    faq6_q:'Как да намеря шофьора на летището?',
+    faq6_a:'За да избегнем летищни такси за паркиране — напишете ни съобщение в WhatsApp или Viber в момента в който вземете багажа си и излезете пред летището. Шофьорът ще пристигне в рамките на минути.',
+    faq7_q:'Колко предварително да резервирам?',
+    faq7_a:'Препоръчваме резервация от няколко дни до седмица предварително — особено за дълги маршрути и в натоварени периоди.',
     routeKey:'Маршрут_BG',
     fallback:[
       {n:'Бургас – Варна',    f:35,  t:45},
@@ -543,6 +643,21 @@ const T = {
     ct_hours_note:'08:00–18:00 · every day',
     f_sub:'Transfers | Burgas, Bulgaria', f_copy:'© OrionTaxi.com — Burgas. All rights reserved.',
     cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Call us',
+    faq_label:'Frequently asked questions', faq_title:'Have <em>questions?</em>',
+    faq1_q:'How does payment work?',
+    faq1_a:'A deposit is required to confirm your booking. The remaining balance is paid in cash upon boarding.',
+    faq2_q:'What languages do the drivers speak?',
+    faq2_a:'Drivers speak Bulgarian and conversational English — more than enough for comfortable communication throughout the journey.',
+    faq3_q:'How many passengers and how much luggage fits?',
+    faq3_a:'Our estate-class vehicles comfortably accommodate up to 4 passengers with 4 suitcases.',
+    faq4_q:'How long does the journey take?',
+    faq4_a:'Burgas–Varna is approximately 1h 45min–2h. Longer routes include a short rest stop. During summer and public holidays, traffic may extend travel time — especially to Istanbul and Bucharest.',
+    faq5_q:'Do you wait if my flight is delayed?',
+    faq5_a:'We track flights in real time and adjust the pickup time automatically. For reasonable delays we wait at no extra charge. For significant delays or cancelled flights — please contact us as soon as possible so we can find the best solution together.',
+    faq6_q:'How do I find the driver at the airport?',
+    faq6_a:'To avoid airport parking fees — send us a WhatsApp or Viber message the moment you collect your luggage and step outside the terminal. The driver will arrive within minutes.',
+    faq7_q:'How far in advance should I book?',
+    faq7_a:'We recommend booking a few days to a week in advance — especially for long-distance routes and during busy periods.',
     routeKey:'Маршрут_EN',
     fallback:[],
   },
@@ -588,6 +703,21 @@ const T = {
     ct_hours_note:'08:00–18:00 · каждый день',
     f_sub:'Трансферы | Бургас, Болгария', f_copy:'© OrionTaxi.com — Бургас. Все права защищены.',
     cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Позвонить',
+    faq_label:'Часто задаваемые вопросы', faq_title:'Есть <em>вопросы?</em>',
+    faq1_q:'Как происходит оплата?',
+    faq1_a:'Для подтверждения бронирования требуется предоплата. Остаток оплачивается наличными при посадке.',
+    faq2_q:'На каких языках говорят водители?',
+    faq2_a:'Водители говорят на болгарском и английском на разговорном уровне — достаточно для комфортного общения во время поездки.',
+    faq3_q:'Сколько пассажиров и багажа помещается?',
+    faq3_a:'Автомобили класса комби вмещают до 4 пассажиров с 4 чемоданами.',
+    faq4_q:'Сколько времени занимает поездка?',
+    faq4_a:'Бургас–Варна — около 1ч 45мин–2ч. На длинных маршрутах предусмотрена короткая остановка. В летний сезон и праздничные дни возможны задержки из-за трафика — особенно в Стамбул и Бухарест.',
+    faq5_q:'Ждёте ли вы при задержке рейса?',
+    faq5_a:'Мы отслеживаем рейсы в реальном времени и автоматически корректируем время встречи. При разумной задержке ждём без доплаты. При значительной задержке или отмене рейса — свяжитесь с нами как можно скорее, чтобы найти лучшее решение вместе.',
+    faq6_q:'Как найти водителя в аэропорту?',
+    faq6_a:'Чтобы избежать парковочных сборов — напишите нам в WhatsApp или Viber, как только получите багаж и выйдете из терминала. Водитель прибудет в течение нескольких минут.',
+    faq7_q:'За сколько дней нужно бронировать?',
+    faq7_a:'Рекомендуем бронировать за несколько дней — до недели заранее, особенно для длинных маршрутов и в загруженные периоды.',
     routeKey:'Маршрут_RU',
     fallback:[],
   },
@@ -733,6 +863,23 @@ function observeEls(){
     el.style.transition=`opacity .42s ease ${i*.03}s, transform .42s ease ${i*.03}s`;
     obs.observe(el);
   });
+}
+
+
+// ── FAQ toggle ──
+function toggleFaq(btn){
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // Затвори всички
+  document.querySelectorAll('.faq-q.open').forEach(b=>{
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  // Отвори натиснатия ако беше затворен
+  if(!isOpen){
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
 }
 
 // ── Init ──
