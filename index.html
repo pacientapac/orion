@@ -690,7 +690,8 @@ function parseCSV(text){
 }
 
 function loadPrices(){
-  fetch(CONFIG.SHEETS_URL)
+  const url = CONFIG.SHEETS_URL + '&t=' + Date.now();
+  fetch(url)
     .then(r=>{ if(!r.ok) throw new Error(); return r.text(); })
     .then(csv=>{ pricesData=parseCSV(csv); renderRoutes(lang); })
     .catch(()=>{ pricesData=null; renderRoutes(lang); });
