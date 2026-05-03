@@ -12,16 +12,15 @@
   --ink:#0C0C10;--ink2:#141419;--ink3:#1C1C25;--ink4:#252530;
   --fog:#9A9AA6;--mist:#D0CFD8;--snow:#F5F3EE;
   --r:5px;--nav:62px;
-  --fs-xs:.8rem;--fs-sm:.92rem;--fs-base:1rem;--fs-md:1.1rem;--fs-lg:1.25rem;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{background:var(--ink);color:var(--snow);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.65;overflow-x:hidden;font-size:16px}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
 
-/* ══ NAV ══ */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(12,12,16,.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(201,168,76,.14)}
-.nav-logo{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:0}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.04em;text-decoration:none}
 .nav-logo .n-orion{color:var(--gold2)}
 .nav-logo .n-taxi{color:var(--snow)}
 .nav-logo .n-dot{color:var(--fog)}
@@ -34,7 +33,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);display:fl
 .lb.on{background:var(--gold);color:var(--ink)}
 .lb:hover:not(.on){background:rgba(201,168,76,.1);color:var(--snow)}
 
-/* ══ HERO ══ */
+/* HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(var(--nav) + 2rem) 1.5rem 2rem;position:relative;overflow:hidden;text-align:center}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 110% 80% at 50% 115%,rgba(201,168,76,.1) 0%,transparent 58%),radial-gradient(ellipse 55% 45% at 8% 18%,rgba(201,168,76,.06) 0%,transparent 55%),radial-gradient(ellipse 45% 35% at 92% 12%,rgba(201,168,76,.05) 0%,transparent 55%),linear-gradient(160deg,#0C0C10 0%,#0F0F1A 100%)}
 .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%)}
@@ -43,32 +42,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav);display:fl
 .hero-tag::before,.hero-tag::after{content:'';display:block;width:22px;height:1px;background:var(--gold)}
 .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5.5vw,4.6rem);font-weight:700;line-height:1.05;margin-bottom:1rem;opacity:0;animation:fadeUp .6s .15s ease forwards}
 .hero-h1 em{font-style:italic;color:var(--gold2)}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--fog);margin-bottom:.6rem;line-height:1.7;max-width:580px;opacity:0;animation:fadeUp .6s .25s ease forwards}
-.hero-routes{font-size:clamp(.85rem,1.5vw,.98rem);color:var(--mist);margin-bottom:2.2rem;letter-spacing:.03em;opacity:0;animation:fadeUp .6s .32s ease forwards}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--fog);margin-bottom:.5rem;line-height:1.7;max-width:580px;opacity:0;animation:fadeUp .6s .25s ease forwards}
+.hero-routes{font-size:clamp(.88rem,1.5vw,1rem);color:var(--mist);margin-bottom:2.2rem;letter-spacing:.03em;opacity:0;animation:fadeUp .6s .32s ease forwards}
 .hero-routes em{color:var(--gold3);font-style:normal;font-weight:500}
 
-/* hero CTA */
+/* Hero CTA */
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .6s .42s ease forwards}
-.hbtn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:600;letter-spacing:.03em;text-decoration:none;transition:all .25s;cursor:pointer;border:none;white-space:nowrap}
+.hbtn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:.75rem 1.6rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.98rem;font-weight:600;letter-spacing:.03em;text-decoration:none;transition:all .25s;cursor:pointer;border:none;white-space:nowrap;line-height:1.2}
+.hbtn-top{display:flex;align-items:center;gap:.5rem}
+.hbtn-num{font-size:.72rem;font-weight:400;opacity:.85;margin-top:.2rem}
 .hbtn-wa{background:#25D366;color:#fff}
 .hbtn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.35)}
 .hbtn-vb{background:#7F3FBF;color:#fff}
 .hbtn-vb:hover{background:#6e35a8;transform:translateY(-2px);box-shadow:0 10px 28px rgba(127,63,191,.35)}
-.hbtn-phone{background:transparent;color:var(--gold2);border:1.5px solid rgba(201,168,76,.4);font-size:.92rem}
+.hbtn-phone{background:transparent;color:var(--gold2);border:1.5px solid rgba(201,168,76,.4);font-size:.92rem;flex-direction:row;gap:.5rem}
 .hbtn-phone:hover{background:rgba(201,168,76,.1);color:var(--gold3);border-color:var(--gold2);transform:translateY(-2px)}
-.hbtn-mail{background:transparent;color:var(--mist);border:1.5px solid rgba(201,168,76,.25);font-size:.88rem}
-.hbtn-mail:hover{background:rgba(201,168,76,.08);color:var(--snow);border-color:rgba(201,168,76,.5);transform:translateY(-2px)}
+.hbtn-mail{background:transparent;color:var(--mist);border:1.5px solid rgba(201,168,76,.22);font-size:.85rem;flex-direction:row;gap:.4rem}
+.hbtn-mail:hover{background:rgba(201,168,76,.07);color:var(--snow);border-color:rgba(201,168,76,.45);transform:translateY(-2px)}
 
 .trust-row{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem;opacity:0;animation:fadeUp .55s .55s ease forwards}
 .chip{display:inline-flex;align-items:center;gap:.35rem;padding:.28rem .8rem;border:1px solid rgba(201,168,76,.18);border-radius:100px;font-size:.8rem;color:var(--mist);background:rgba(201,168,76,.05)}
 .chip em{font-style:normal;color:var(--gold2)}
-
 .scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--fog);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite}
 .scroll-hint::after{content:'';width:1px;height:28px;background:linear-gradient(180deg,var(--gold),transparent)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
 
-/* ══ SECTIONS ══ */
+/* SECTIONS */
 section.inner{padding:5rem 1.5rem;position:relative}
 .container{max-width:1080px;margin:0 auto}
 .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
@@ -77,33 +77,39 @@ section.inner{padding:5rem 1.5rem;position:relative}
 .sec-title em{font-style:italic;color:var(--gold2)}
 .sep{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent)}
 
-/* ══ WHY US ══ */
+/* WHY US */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.2rem;margin-top:2.2rem}
 .why-card{background:var(--ink2);border:1px solid rgba(201,168,76,.12);border-radius:var(--r);padding:1.75rem 1.25rem;text-align:center;transition:all .3s}
 .why-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
 .why-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1}
 .why-label{font-size:.88rem;color:var(--fog);margin-top:.4rem;line-height:1.45}
 
-/* ══ FLEET — скрита ако всички .empty ══ */
+/* FLEET */
 .fleet-section{background:var(--ink2);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
 .fleet-section.all-empty{display:none}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
-.fleet-card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--ink3);border:1px solid rgba(201,168,76,.1)}
+.fleet-card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--ink3);border:1px solid rgba(201,168,76,.1);cursor:pointer}
 .fleet-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
 .fleet-card:hover img{transform:scale(1.05)}
-.fleet-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.8) 100%)}
-.fleet-card-label{position:absolute;bottom:.9rem;left:1rem;font-size:.88rem;font-weight:600;color:var(--snow);letter-spacing:.04em}
+.fleet-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.5) 100%)}
 .fleet-card.empty{display:none}
 
-/* ══ ROUTES + PRICES (combined) ══ */
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:pointer}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:var(--r);box-shadow:0 24px 80px rgba(0,0,0,.8)}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;color:var(--fog);font-size:2rem;cursor:pointer;transition:color .2s;line-height:1}
+.lightbox-close:hover{color:var(--snow)}
+
+/* ROUTES + PRICES */
 .routes-section{background:var(--ink)}
 .routes-intro{font-size:1.02rem;color:var(--fog);max-width:600px;margin-bottom:2rem;line-height:1.75}
 .routes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.75rem;margin-bottom:1.5rem}
-.route-card{background:var(--ink2);border:1px solid rgba(201,168,76,.1);border-radius:var(--r);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:all .22s;cursor:default}
+.route-card{background:var(--ink2);border:1px solid rgba(201,168,76,.1);border-radius:var(--r);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:all .22s}
 .route-card:hover{border-color:rgba(201,168,76,.38);background:rgba(201,168,76,.05)}
 .route-left{display:flex;align-items:center;gap:.75rem}
 .route-arrow{color:var(--gold);font-size:1.1rem;flex-shrink:0}
-.route-name{font-size:.98rem;color:var(--snow);font-weight:400}
+.route-name{font-size:.98rem;color:var(--snow)}
 .route-price{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold2);font-weight:600;white-space:nowrap;flex-shrink:0}
 .route-price span{font-size:.78rem;font-family:'Outfit',sans-serif;color:var(--fog);font-weight:400}
 .routes-loading{color:var(--fog);font-size:.92rem;padding:1rem 0;display:flex;align-items:center;gap:.6rem}
@@ -112,17 +118,16 @@ section.inner{padding:5rem 1.5rem;position:relative}
 .routes-note{font-size:.82rem;color:var(--fog);font-style:italic;margin-top:1.2rem;line-height:1.6}
 .routes-cta{margin-top:2rem;display:flex;gap:.85rem;flex-wrap:wrap}
 
-/* ══ SERVICES ══ */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:2rem}
-.svc-card{background:var(--ink2);border:1px solid rgba(201,168,76,.1);border-radius:var(--r);padding:1.75rem;position:relative;overflow:hidden;transition:all .3s}
-.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .3s}
-.svc-card:hover{border-color:rgba(201,168,76,.32);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.45)}
-.svc-card:hover::after{opacity:1}
-.svc-icon{font-size:1.75rem;margin-bottom:.9rem}
-.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin-bottom:.45rem}
-.svc-card p{font-size:.92rem;color:var(--fog);line-height:1.65}
+/* SERVICES — list style */
+.svc-list{display:flex;flex-direction:column;gap:0;margin-top:2rem;border:1px solid rgba(201,168,76,.12);border-radius:var(--r);overflow:hidden}
+.svc-item{display:flex;align-items:flex-start;gap:1.5rem;padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,168,76,.08);transition:background .2s}
+.svc-item:last-child{border-bottom:none}
+.svc-item:hover{background:rgba(201,168,76,.04)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:rgba(201,168,76,.35);line-height:1;flex-shrink:0;width:2rem;text-align:right}
+.svc-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.3rem;color:var(--snow)}
+.svc-body p{font-size:.92rem;color:var(--fog);line-height:1.65}
 
-/* ══ CONTACT ══ */
+/* CONTACT */
 .contact-section{background:var(--ink2);border-top:1px solid rgba(201,168,76,.1)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.5rem}
 .contact-info{display:flex;flex-direction:column;gap:1.4rem}
@@ -147,13 +152,13 @@ section.inner{padding:5rem 1.5rem;position:relative}
 .cbtn-text span{font-size:.78rem;font-weight:400;opacity:.75}
 .hours-note{font-size:.84rem;color:var(--fog);text-align:center;margin-top:.4rem;font-style:italic}
 
-/* ══ FLOATING WA ══ */
+/* FLOATING WA */
 .wa-float{position:fixed;bottom:1.6rem;right:1.6rem;z-index:300;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.5);text-decoration:none;transition:all .25s;animation:pulse-wa 2.8s ease-in-out infinite}
 .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 32px rgba(37,211,102,.65);animation:none}
 .wa-float svg{width:32px;height:32px;fill:#fff}
 @keyframes pulse-wa{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5)}50%{box-shadow:0 4px 36px rgba(37,211,102,.75),0 0 0 10px rgba(37,211,102,.1)}}
 
-/* ══ FOOTER ══ */
+/* FOOTER */
 footer{padding:2.2rem;text-align:center;border-top:1px solid rgba(201,168,76,.09)}
 .f-logo{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.3rem}
 .f-logo .fo{color:var(--gold2)}
@@ -162,14 +167,14 @@ footer{padding:2.2rem;text-align:center;border-top:1px solid rgba(201,168,76,.09
 footer p{font-size:.82rem;color:var(--fog)}
 .fdiv{width:36px;height:1px;background:var(--gold);margin:.9rem auto;opacity:.35}
 
-/* ══ MOBILE STICKY ══ */
+/* MOBILE STICKY */
 .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;padding:.85rem 1rem calc(.85rem + env(safe-area-inset-bottom));background:rgba(12,12,16,.97);backdrop-filter:blur(18px);border-top:1px solid rgba(201,168,76,.22);gap:.6rem;align-items:center}
 .sticky-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.8rem .4rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
 .sb-wa{background:#25D366;color:#fff}
 .sb-vb{background:#7F3FBF;color:#fff}
 .sb-ph{background:var(--gold);color:var(--ink)}
 
-/* ══ RESPONSIVE ══ */
+/* RESPONSIVE */
 @media(max-width:900px){.fleet-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){
   nav{padding:0 1.2rem}
@@ -178,16 +183,18 @@ footer p{font-size:.82rem;color:var(--fog)}
   .contact-grid{grid-template-columns:1fr}
   .routes-grid{grid-template-columns:1fr}
   .fleet-grid{grid-template-columns:1fr}
-  .hbtn{padding:.75rem 1.3rem;font-size:.9rem}
+  .hero-cta{gap:.75rem}
   .wa-float{display:none}
   .sticky-cta{display:flex}
   footer{padding-bottom:calc(4.5rem + env(safe-area-inset-bottom))}
 }
-@media(max-width:420px){.hero-cta{gap:.65rem}}
+@media(max-width:480px){
+  .hbtn{padding:.65rem 1.1rem;font-size:.88rem}
+}
 @media(max-height:780px) and (min-width:701px){
   .hero-h1{font-size:clamp(2rem,4.5vw,3.4rem)}
-  .hero-sub{font-size:.95rem;margin-bottom:.4rem}
-  .hero-routes{margin-bottom:1.6rem}
+  .hero-sub{font-size:.95rem;margin-bottom:.35rem}
+  .hero-routes{margin-bottom:1.5rem}
   .trust-row{margin-top:1.2rem}
 }
 </style>
@@ -214,18 +221,24 @@ footer p{font-size:.82rem;color:var(--fog)}
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-tag" data-t="hero_tag">Орион Такси — Бургас</div>
-    <h1 class="hero-h1" data-t="hero_h1">Луксозни <em>трансфери</em><br>из цяла България</h1>
+    <h1 class="hero-h1" data-t="hero_h1">Луксозни <em>трансфери</em>:<br>България · Турция · Румъния</h1>
     <p class="hero-sub" data-t="hero_sub">Комфортно пътуване в представителни автомобили.</p>
-    <p class="hero-routes" data--t="hero_routes"><em data-t="hero_routes"></em></p>
+    <p class="hero-routes" data-t="hero_routes">Бургас · Варна · София · Истанбул · Букурещ</p>
 
     <div class="hero-cta">
       <a class="hbtn hbtn-wa" id="hero-wa" href="https://wa.me/359899800800" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.545 4.075 1.5 5.788L0 24l6.388-1.676A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.724.977.994-3.63-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
-        <span data-t="hero_wa">WhatsApp</span>
+        <div class="hbtn-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.545 4.075 1.5 5.788L0 24l6.388-1.676A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.724.977.994-3.63-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+          <span data-t="hero_wa">WhatsApp</span>
+        </div>
+        <div class="hbtn-num">+359 899 800 800</div>
       </a>
       <a class="hbtn hbtn-vb" id="hero-vb" href="viber://chat?number=%2B359899800800" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C6.39.05 2.87 1.41 2.87 1.41.91 2.07 0 4.01 0 4.01S-.97 6.5 1.49 11.11c1.42 2.75 3.5 5.24 6.26 6.83l.07.04v3.36s-.02.64.42.77c.28.08.45-.09.72-.38.17-.18.35-.37.56-.59l.45-.48.92-.98c2.63.22 4.63-.33 4.86-.41.53-.18 3.54-1.05 4.03-4.28.51-3.33-.09-5.44-1.3-6.71-.33-.34-2.2-2.19-5.67-2.62-.64-.08-1.29-.12-1.97-.11zm.03 1.58c.6-.01 1.18.03 1.74.1 2.9.35 4.46 1.88 4.71 2.15 1.01 1.07 1.5 2.91 1.07 5.76-.41 2.68-2.87 3.36-3.28 3.49-.19.06-1.94.55-4.21.36l-.35-.03-.26.28-.92.98-.28.3v-2.04l-.43-.22c-2.47-1.33-4.37-3.55-5.66-6.09C1.88 5.22 2.27 3.69 2.52 3.34c.07-.09.46-.67 2.21-1.33.33-.13.52-.2.83-.28.8-.2 2.11-.16 3.04-.18l.23.01z"/></svg>
-        <span data-t="hero_vb">Viber</span>
+        <div class="hbtn-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C6.39.05 2.87 1.41 2.87 1.41.91 2.07 0 4.01 0 4.01S-.97 6.5 1.49 11.11c1.42 2.75 3.5 5.24 6.26 6.83l.07.04v3.36s-.02.64.42.77c.28.08.45-.09.72-.38.17-.18.35-.37.56-.59l.45-.48.92-.98c2.63.22 4.63-.33 4.86-.41.53-.18 3.54-1.05 4.03-4.28.51-3.33-.09-5.44-1.3-6.71-.33-.34-2.2-2.19-5.67-2.62-.64-.08-1.29-.12-1.97-.11zm.03 1.58c.6-.01 1.18.03 1.74.1 2.9.35 4.46 1.88 4.71 2.15 1.01 1.07 1.5 2.91 1.07 5.76-.41 2.68-2.87 3.36-3.28 3.49-.19.06-1.94.55-4.21.36l-.35-.03-.26.28-.92.98-.28.3v-2.04l-.43-.22c-2.47-1.33-4.37-3.55-5.66-6.09C1.88 5.22 2.27 3.69 2.52 3.34c.07-.09.46-.67 2.21-1.33.33-.13.52-.2.83-.28.8-.2 2.11-.16 3.04-.18l.23.01z"/></svg>
+          <span data-t="hero_vb">Viber</span>
+        </div>
+        <div class="hbtn-num">+359 899 800 800</div>
       </a>
       <a class="hbtn hbtn-phone" href="tel:+359899800800">
         📞 <span data-t="hero_call">+359 899 800 800</span>
@@ -247,7 +260,7 @@ footer p{font-size:.82rem;color:var(--fog)}
 
 <div class="sep"></div>
 
-<!-- ROUTES + PRICES — combined -->
+<!-- ROUTES + PRICES -->
 <section class="inner routes-section" id="routes">
   <div class="container">
     <div class="sec-label" data-t="routes_label">Маршрути и цени</div>
@@ -256,13 +269,18 @@ footer p{font-size:.82rem;color:var(--fog)}
     <div id="routes-container">
       <div class="routes-loading" data-t="routes_loading">Зареждане...</div>
     </div>
-    <p class="routes-note" data-t="routes_note">* Цените са ориентировъчни за 1–3 пътници. Точната цена зависи от броя пътници, багажа и сезона.</p>
+    <p class="routes-note" data-t="routes_note">* Цените са ориентировъчни в евро за 1–3 пътници. Точната цена зависи от броя пътници, багажа и сезона.</p>
     <div class="routes-cta">
-      <a class="hbtn hbtn-wa" id="routes-wa" href="https://wa.me/359899800800" target="_blank">
+      <a class="hbtn hbtn-wa" id="routes-wa" href="https://wa.me/359899800800" target="_blank" style="flex-direction:row;gap:.5rem">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.545 4.075 1.5 5.788L0 24l6.388-1.676A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.724.977.994-3.63-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
         <span data-t="cta_ask_wa">Запитване в WhatsApp</span>
       </a>
+      <a class="hbtn hbtn-vb" id="routes-vb" href="viber://chat?number=%2B359899800800" target="_blank" style="flex-direction:row;gap:.5rem">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C6.39.05 2.87 1.41 2.87 1.41.91 2.07 0 4.01 0 4.01S-.97 6.5 1.49 11.11c1.42 2.75 3.5 5.24 6.26 6.83l.07.04v3.36s-.02.64.42.77c.28.08.45-.09.72-.38.17-.18.35-.37.56-.59l.45-.48.92-.98c2.63.22 4.63-.33 4.86-.41.53-.18 3.54-1.05 4.03-4.28.51-3.33-.09-5.44-1.3-6.71-.33-.34-2.2-2.19-5.67-2.62-.64-.08-1.29-.12-1.97-.11zm.03 1.58c.6-.01 1.18.03 1.74.1 2.9.35 4.46 1.88 4.71 2.15 1.01 1.07 1.5 2.91 1.07 5.76-.41 2.68-2.87 3.36-3.28 3.49-.19.06-1.94.55-4.21.36l-.35-.03-.26.28-.92.98-.28.3v-2.04l-.43-.22c-2.47-1.33-4.37-3.55-5.66-6.09C1.88 5.22 2.27 3.69 2.52 3.34c.07-.09.46-.67 2.21-1.33.33-.13.52-.2.83-.28.8-.2 2.11-.16 3.04-.18l.23.01z"/></svg>
+        <span data-t="cta_ask_vb">Запитване в Viber</span>
+      </a>
       <a class="hbtn hbtn-phone" href="tel:+359899800800">📞 <span data-t="cta_call_short">+359 899 800 800</span></a>
+      <a class="hbtn hbtn-mail" href="mailto:oriontaxi.burgas@gmail.com">📧 <span data-t="cta_mail_short">oriontaxi.burgas@gmail.com</span></a>
     </div>
   </div>
 </section>
@@ -286,32 +304,36 @@ footer p{font-size:.82rem;color:var(--fog)}
 
 <div class="sep"></div>
 
-<!-- FLEET — скрита автоматично ако всички снимки липсват -->
+<!-- FLEET -->
 <section class="inner fleet-section" id="fleet-section">
   <div class="container">
     <div class="sec-label" data-t="fleet_label">Нашият флот</div>
     <h2 class="sec-title" data-t="fleet_title">Представителни <em>автомобили</em></h2>
     <div class="fleet-grid">
-      <div class="fleet-card" id="fleet-1">
-        <img src="pics/pic1.jpg"
-          alt="Автомобил 1" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+      <div class="fleet-card" onclick="openLightbox(this)">
+        <img src="pics/pic1.jpg" alt="Автомобил 1"
+          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
         <div class="fleet-card-overlay"></div>
-        <div class="fleet-card-label" data-t="fleet_car1">Нашият флот</div>
       </div>
-      <div class="fleet-card" id="fleet-2">
-        <img src="pics/pic2.jpg"
-          alt="Автомобил 2" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+      <div class="fleet-card" onclick="openLightbox(this)">
+        <img src="pics/pic2.jpg" alt="Автомобил 2"
+          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
         <div class="fleet-card-overlay"></div>
-        <div class="fleet-card-label">Mercedes E-Class</div>
       </div>
-      <div class="fleet-card empty" id="fleet-3">
-        <img src="pics/pic3.jpg" alt="Автомобил 3" onerror="this.closest('.fleet-card').classList.add('empty');var cards=document.querySelectorAll('#fleet-section .fleet-card');if([...cards].every(function(x){return x.classList.contains('empty')})){document.getElementById('fleet-section').classList.add('all-empty');var s=document.getElementById('fleet-sep');if(s)s.style.display='none';}">
+      <div class="fleet-card" onclick="openLightbox(this)">
+        <img src="pics/pic3.jpg" alt="Автомобил 3"
+          onerror="this.closest('.fleet-card').classList.add('empty');checkFleet()">
         <div class="fleet-card-overlay"></div>
-        <div class="fleet-card-label" data-t="fleet_car3">Нашият флот</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <div class="sep" id="fleet-sep"></div>
 
@@ -320,11 +342,31 @@ footer p{font-size:.82rem;color:var(--fog)}
   <div class="container">
     <div class="sec-label" data-t="svc_label">Услуги</div>
     <h2 class="sec-title" data-t="svc_title">Какво <em>предлагаме</em></h2>
-    <div class="svc-grid">
-      <div class="svc-card"><div class="svc-icon">🚗</div><h3 data-t="s1h">Луксозни автомобили</h3><p data-t="s1p">Пътувайте в комфортни представителни автомобили с климатик и всички удобства.</p></div>
-      <div class="svc-card"><div class="svc-icon">✈️</div><h3 data-t="s2h">Летищен трансфер</h3><p data-t="s2p">Посрещане и изпращане на летище Бургас, Варна, София, Истанбул и Букурещ. Следим полетите в реално време.</p></div>
-      <div class="svc-card"><div class="svc-icon">🗺️</div><h3 data-t="s3h">Дълги маршрути</h3><p data-t="s3p">Трансфери до Истанбул, Букурещ и всяка дестинация в България по договаряне.</p></div>
-      <div class="svc-card"><div class="svc-icon">🕐</div><h3 data-t="s4h">Денонощна наличност</h3><p data-t="s4p">Свържете се с нас по всяко време — WhatsApp, Viber или телефон.</p></div>
+    <div class="svc-list">
+      <div class="svc-item">
+        <div class="svc-num">01</div>
+        <div class="svc-body"><h3 data-t="s1h">Представителни автомобили с пълен комфорт</h3><p data-t="s1p">Пътувайте в луксозни автомобили с климатик, просторен салон и всички удобства за дълъг маршрут.</p></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">02</div>
+        <div class="svc-body"><h3 data-t="s2h">Летищен трансфер — следим полетите в реално време</h3><p data-t="s2p">Посрещане и изпращане на летище Бургас, Варна, София, Истанбул и Букурещ. Следим полета ви и изчакваме при закъснение.</p></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">03</div>
+        <div class="svc-body"><h3 data-t="s3h">Трансфери до Истанбул, Букурещ и из цяла България</h3><p data-t="s3p">Дълги маршрути между всички градове в България, до Истанбул и Букурещ. Всяка дестинация по договаряне.</p></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">04</div>
+        <div class="svc-body"><h3 data-t="s4h">Предварителна резервация с потвърждение</h3><p data-t="s4p">Резервирайте предварително и получете потвърждение. Сигурност, че колата ще бъде точно навреме.</p></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">05</div>
+        <div class="svc-body"><h3 data-t="s5h">Вземане от адрес — без търсене на такси</h3><p data-t="s5p">Водачът идва директно до посочения от вас адрес — хотел, дом или офис. Без чакане и без притеснения.</p></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-num">06</div>
+        <div class="svc-body"><h3 data-t="s6h">Подходящ за всякакъв багаж</h3><p data-t="s6p">Просторни автомобили с голям багажник. Куфари, спортно оборудване, детски колички — всичко се побира.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -346,11 +388,11 @@ footer p{font-size:.82rem;color:var(--fog)}
       <div class="contact-btns">
         <a class="cbtn cbtn-wa" id="ct-wa" href="https://wa.me/359899800800" target="_blank">
           <span class="cbtn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.545 4.075 1.5 5.788L0 24l6.388-1.676A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.36-.214-3.724.977.994-3.63-.234-.373A9.818 9.818 0 1112 21.818z"/></svg></span>
-          <div class="cbtn-text"><span data-t="ct_wa_main">Пишете ни в WhatsApp</span><span data-t="ct_wa_sub">Отговаряме бързо</span></div>
+          <div class="cbtn-text"><span data-t="ct_wa_main">Пишете ни в WhatsApp</span><span>+359 899 800 800</span></div>
         </a>
         <a class="cbtn cbtn-vb" id="ct-vb" href="viber://chat?number=%2B359899800800" target="_blank">
           <span class="cbtn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C6.39.05 2.87 1.41 2.87 1.41.91 2.07 0 4.01 0 4.01S-.97 6.5 1.49 11.11c1.42 2.75 3.5 5.24 6.26 6.83l.07.04v3.36s-.02.64.42.77c.28.08.45-.09.72-.38.17-.18.35-.37.56-.59l.45-.48.92-.98c2.63.22 4.63-.33 4.86-.41.53-.18 3.54-1.05 4.03-4.28.51-3.33-.09-5.44-1.3-6.71-.33-.34-2.2-2.19-5.67-2.62-.64-.08-1.29-.12-1.97-.11zm.03 1.58c.6-.01 1.18.03 1.74.1 2.9.35 4.46 1.88 4.71 2.15 1.01 1.07 1.5 2.91 1.07 5.76-.41 2.68-2.87 3.36-3.28 3.49-.19.06-1.94.55-4.21.36l-.35-.03-.26.28-.92.98-.28.3v-2.04l-.43-.22c-2.47-1.33-4.37-3.55-5.66-6.09C1.88 5.22 2.27 3.69 2.52 3.34c.07-.09.46-.67 2.21-1.33.33-.13.52-.2.83-.28.8-.2 2.11-.16 3.04-.18l.23.01z"/></svg></span>
-          <div class="cbtn-text"><span data-t="ct_vb_main">Пишете ни в Viber</span><span data-t="ct_vb_sub">+359 899 800 800</span></div>
+          <div class="cbtn-text"><span data-t="ct_vb_main">Пишете ни в Viber</span><span>+359 899 800 800</span></div>
         </a>
         <a class="cbtn cbtn-phone" href="tel:+359899800800">
           <span class="cbtn-icon">📞</span>
@@ -384,7 +426,7 @@ footer p{font-size:.82rem;color:var(--fog)}
 <!-- MOBILE STICKY -->
 <div class="sticky-cta">
   <a class="sticky-btn sb-wa" id="sticky-wa" href="https://wa.me/359899800800" target="_blank">💬 <span data-t="cta_wa">WhatsApp</span></a>
-  <a class="sticky-btn sb-vb" href="viber://chat?number=%2B359899800800">📲 <span data-t="cta_vb">Viber</span></a>
+  <a class="sticky-btn sb-vb" id="sticky-vb" href="viber://chat?number=%2B359899800800">📲 <span data-t="cta_vb">Viber</span></a>
   <a class="sticky-btn sb-ph" href="tel:+359899800800">📞 <span data-t="cta_call">Обади се</span></a>
 </div>
 
@@ -403,51 +445,60 @@ const T = {
     hero_h1:'Луксозни <em>трансфери</em>:<br>България · Турция · Румъния',
     hero_sub:'Комфортно пътуване в представителни автомобили.',
     hero_routes:'Бургас · Варна · София · Истанбул · Букурещ',
-    hero_wa:'WhatsApp',hero_vb:'Viber',hero_call:'+359 899 800 800',
-    t1:'Летищен трансфер',t2:'Луксозни автомобили',t3:'Денонощно',t4:'България · Турция · Румъния',
+    hero_wa:'WhatsApp', hero_vb:'Viber', hero_call:'+359 899 800 800',
+    hero_mail:'oriontaxi.burgas@gmail.com',
+    t1:'Летищен трансфер', t2:'Луксозни автомобили', t3:'Денонощно', t4:'България · Турция · Румъния',
     scroll:'Скрол',
     routes_label:'Маршрути и цени',
     routes_title:'Дестинации и <em>ориентировъчни цени</em>',
     routes_intro:'Изпълняваме трансфери между всички градове в България, до летище Истанбул и до Букурещ. Изберете маршрута и се свържете с нас за потвърждение и точна цена.',
     routes_loading:'Зареждане...',
     routes_note:'* Цените са ориентировъчни в евро за 1–3 пътници. Точната цена зависи от броя пътници, багажа и сезона.',
-    routes_from:'от',routes_to:'до',routes_lv:'€',
-    cta_ask_wa:'Запитване в WhatsApp',cta_call_short:'+359 899 800 800',
-    why_label:'Защо нас',why_title:'Над <em>10 години</em> опит в трансферите',
-    why1:'години опит',why2:'доволни клиента',why3:'наличност',why4:'представителни автомобили',why5:'следим полетите в реално време',
-    fleet_label:'Нашият флот',fleet_title:'Представителни <em>автомобили</em>',fleet_car1:'Нашият флот',fleet_car2:'Нашият флот',fleet_car3:'Нашият флот',
-    svc_label:'Услуги',svc_title:'Какво <em>предлагаме</em>',
-    s1h:'Луксозни автомобили',s1p:'Пътувайте в комфортни представителни автомобили с климатик и всички удобства.',
-    s2h:'Летищен трансфер',s2p:'Посрещане и изпращане на летище Бургас, Варна, София, Истанбул и Букурещ. Следим полетите в реално време.',
-    s3h:'Дълги маршрути',s3p:'Трансфери до Истанбул, Букурещ и всяка дестинация в България по договаряне.',
-    s4h:'Денонощна наличност',s4p:'Свържете се с нас по всяко време — WhatsApp, Viber или телефон.',
-    ct_label:'Контакти',ct_title:'Свържете се <em>с нас</em>',
-    ct_phone_lbl:'Телефон',ct_email_lbl:'Имейл',
-    ct_hours_lbl:'Работно време',ct_hours_val:'08:00 – 18:00',ct_days:'Понеделник – Неделя',
-    ct_loc_lbl:'Местоположение',ct_loc_val:'Бургас, България',
-    ct_wa_main:'Пишете ни в WhatsApp',ct_wa_sub:'Отговаряме бързо',
-    ct_vb_main:'Пишете ни в Viber',ct_vb_sub:'+359 899 800 800',
-    ct_phone_main:'Обадете се директно',ct_mail_main:'Изпратете имейл',
+    routes_lv:'€',
+    cta_ask_wa:'Запитване в WhatsApp', cta_ask_vb:'Запитване в Viber',
+    cta_call_short:'+359 899 800 800', cta_mail_short:'oriontaxi.burgas@gmail.com',
+    why_label:'Защо нас', why_title:'Над <em>10 години</em> опит в трансферите',
+    why1:'години опит', why2:'доволни клиента', why3:'наличност', why4:'представителни автомобили', why5:'следим полетите в реално време',
+    fleet_label:'Нашият флот', fleet_title:'Представителни <em>автомобили</em>',
+    svc_label:'Услуги', svc_title:'Какво <em>предлагаме</em>',
+    s1h:'Представителни автомобили с пълен комфорт',
+    s1p:'Пътувайте в луксозни автомобили с климатик, просторен салон и всички удобства за дълъг маршрут.',
+    s2h:'Летищен трансфер — следим полетите в реално време',
+    s2p:'Посрещане и изпращане на летище Бургас, Варна, София, Истанбул и Букурещ. Следим полета ви и изчакваме при закъснение.',
+    s3h:'Трансфери до Истанбул, Букурещ и из цяла България',
+    s3p:'Дълги маршрути между всички градове в България, до Истанбул и Букурещ. Всяка дестинация по договаряне.',
+    s4h:'Предварителна резервация с потвърждение',
+    s4p:'Резервирайте предварително и получете потвърждение. Сигурност, че колата ще бъде точно навреме.',
+    s5h:'Вземане от адрес — без търсене на такси',
+    s5p:'Водачът идва директно до посочения от вас адрес — хотел, дом или офис. Без чакане и без притеснения.',
+    s6h:'Подходящ за всякакъв багаж',
+    s6p:'Просторни автомобили с голям багажник. Куфари, спортно оборудване, детски колички — всичко се побира.',
+    ct_label:'Контакти', ct_title:'Свържете се <em>с нас</em>',
+    ct_phone_lbl:'Телефон', ct_email_lbl:'Имейл',
+    ct_hours_lbl:'Работно време', ct_hours_val:'08:00 – 18:00', ct_days:'Понеделник – Неделя',
+    ct_loc_lbl:'Местоположение', ct_loc_val:'Бургас, България',
+    ct_wa_main:'Пишете ни в WhatsApp', ct_vb_main:'Пишете ни в Viber',
+    ct_phone_main:'Обадете се директно', ct_mail_main:'Изпратете имейл',
     ct_hours_note:'08:00–18:00 · всеки ден',
-    f_sub:'Трансфери | Бургас, България',f_copy:'© OrionTaxi.com — Бургас. Всички права запазени.',
-    cta_wa:'WhatsApp',cta_vb:'Viber',cta_call:'Обади се',
+    f_sub:'Трансфери | Бургас, България', f_copy:'© OrionTaxi.com — Бургас. Всички права запазени.',
+    cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Обади се',
     routeKey:'Маршрут_BG',
-    routes:[
-      {bg:'Бургас – Варна',en:'Burgas – Varna',ru:'Бургас – Варна',from:35,to:45,on:true},
-      {bg:'Бургас – София',en:'Burgas – Sofia',ru:'Бургас – София',from:85,to:110,on:true},
-      {bg:'Бургас – Истанбул',en:'Burgas – Istanbul',ru:'Бургас – Стамбул',from:130,to:165,on:true},
-      {bg:'Бургас – Букурещ',en:'Burgas – Bucharest',ru:'Бургас – Бухарест',from:145,to:185,on:true},
-      {bg:'Варна – Бургас',en:'Varna – Burgas',ru:'Варна – Бургас',from:35,to:45,on:true},
-      {bg:'Варна – София',en:'Varna – Sofia',ru:'Варна – София',from:80,to:100,on:true},
-      {bg:'Варна – Истанбул',en:'Varna – Istanbul',ru:'Варна – Стамбул',from:120,to:155,on:true},
-      {bg:'Варна – Букурещ',en:'Varna – Bucharest',ru:'Варна – Бухарест',from:135,to:175,on:true},
-      {bg:'София – Бургас',en:'Sofia – Burgas',ru:'София – Бургас',from:85,to:110,on:true},
-      {bg:'София – Варна',en:'Sofia – Varna',ru:'София – Варна',from:80,to:100,on:true},
-      {bg:'София – Истанбул',en:'Sofia – Istanbul',ru:'София – Стамбул',from:165,to:205,on:true},
-      {bg:'София – Букурещ',en:'Sofia – Bucharest',ru:'София – Бухарест',from:100,to:135,on:true},
-      {bg:'Истанбул – Бургас',en:'Istanbul – Burgas',ru:'Стамбул – Бургас',from:130,to:165,on:true},
-      {bg:'Истанбул – Варна',en:'Istanbul – Varna',ru:'Стамбул – Варна',from:120,to:155,on:true},
-      {bg:'Истанбул – София',en:'Istanbul – Sofia',ru:'Стамбул – София',from:165,to:205,on:true},
+    fallback:[
+      {n:'Бургас – Варна',    f:35,  t:45},
+      {n:'Бургас – София',    f:85,  t:110},
+      {n:'Бургас – Истанбул', f:130, t:165},
+      {n:'Бургас – Букурещ',  f:145, t:185},
+      {n:'Варна – Бургас',    f:35,  t:45},
+      {n:'Варна – София',     f:80,  t:100},
+      {n:'Варна – Истанбул',  f:125, t:155},
+      {n:'Варна – Букурещ',   f:135, t:175},
+      {n:'София – Бургас',    f:85,  t:110},
+      {n:'София – Варна',     f:80,  t:100},
+      {n:'София – Истанбул',  f:165, t:205},
+      {n:'София – Букурещ',   f:100, t:135},
+      {n:'Истанбул – Бургас', f:130, t:165},
+      {n:'Истанбул – Варна',  f:125, t:155},
+      {n:'Истанбул – София',  f:165, t:205},
     ],
   },
   en:{
@@ -455,205 +506,238 @@ const T = {
     hero_h1:'Luxury <em>transfers</em>:<br>Bulgaria · Turkey · Romania',
     hero_sub:'Comfortable travel in premium vehicles.',
     hero_routes:'Burgas · Varna · Sofia · Istanbul · Bucharest',
-    hero_wa:'WhatsApp',hero_vb:'Viber',hero_call:'+359 899 800 800',
-    t1:'Airport transfer',t2:'Luxury vehicles',t3:'24/7 available',t4:'Bulgaria · Turkey · Romania',
+    hero_wa:'WhatsApp', hero_vb:'Viber', hero_call:'+359 899 800 800',
+    hero_mail:'oriontaxi.burgas@gmail.com',
+    t1:'Airport transfer', t2:'Luxury vehicles', t3:'24/7 available', t4:'Bulgaria · Turkey · Romania',
     scroll:'Scroll',
     routes_label:'Routes & prices',
     routes_title:'Destinations and <em>estimated prices</em>',
     routes_intro:'We operate transfers between all major cities in Bulgaria, to Istanbul airport and to Bucharest. Select a route and contact us for confirmation and exact price.',
     routes_loading:'Loading...',
     routes_note:'* Prices are indicative in euros for 1–3 passengers. Final price depends on passenger count, luggage and season.',
-    routes_from:'from',routes_to:'to',routes_lv:'€',
-    cta_ask_wa:'Enquire on WhatsApp',cta_call_short:'+359 899 800 800',
-    why_label:'Why us',why_title:'Over <em>10 years</em> of experience',
-    why1:'years of experience',why2:'happy clients',why3:'availability',why4:'premium vehicles',why5:'real-time flight tracking',
-    fleet_label:'Our fleet',fleet_title:'Premium <em>vehicles</em>',fleet_car1:'Our fleet',fleet_car2:'Our fleet',fleet_car3:'Our fleet',
-    svc_label:'Services',svc_title:'What we <em>offer</em>',
-    s1h:'Luxury vehicles',s1p:'Travel in comfortable premium cars with air conditioning and all amenities.',
-    s2h:'Airport transfer',s2p:'Meet & greet at Burgas, Varna, Sofia, Istanbul and Bucharest airports. Real-time flight tracking.',
-    s3h:'Long-distance routes',s3p:'Transfers to Istanbul, Bucharest and any destination in Bulgaria on request.',
-    s4h:'24/7 availability',s4p:'Contact us any time — WhatsApp, Viber or phone.',
-    ct_label:'Contact',ct_title:'Get in <em>touch</em>',
-    ct_phone_lbl:'Phone',ct_email_lbl:'Email',
-    ct_hours_lbl:'Working hours',ct_hours_val:'08:00 – 18:00',ct_days:'Monday – Sunday',
-    ct_loc_lbl:'Location',ct_loc_val:'Burgas, Bulgaria',
-    ct_wa_main:'Message us on WhatsApp',ct_wa_sub:'We reply fast',
-    ct_vb_main:'Message us on Viber',ct_vb_sub:'+359 899 800 800',
-    ct_phone_main:'Call us directly',ct_mail_main:'Send an email',
+    routes_lv:'€',
+    cta_ask_wa:'Enquire on WhatsApp', cta_ask_vb:'Enquire on Viber',
+    cta_call_short:'+359 899 800 800', cta_mail_short:'oriontaxi.burgas@gmail.com',
+    why_label:'Why us', why_title:'Over <em>10 years</em> of experience',
+    why1:'years of experience', why2:'happy clients', why3:'availability', why4:'premium vehicles', why5:'real-time flight tracking',
+    fleet_label:'Our fleet', fleet_title:'Premium <em>vehicles</em>',
+    svc_label:'Services', svc_title:'What we <em>offer</em>',
+    s1h:'Premium vehicles with full comfort',
+    s1p:'Travel in luxury cars with air conditioning, spacious interior and all amenities for long journeys.',
+    s2h:'Airport transfer — real-time flight tracking',
+    s2p:'Meet & greet at Burgas, Varna, Sofia, Istanbul and Bucharest airports. We track your flight and wait at delays.',
+    s3h:'Transfers to Istanbul, Bucharest and across Bulgaria',
+    s3p:'Long-distance routes between all cities in Bulgaria, to Istanbul and Bucharest. Any destination on request.',
+    s4h:'Advance booking with confirmation',
+    s4p:'Book in advance and receive confirmation. The peace of mind that your car will be there on time.',
+    s5h:'Door-to-door pickup — no searching for taxis',
+    s5p:'The driver comes directly to your address — hotel, home or office. No waiting, no hassle.',
+    s6h:'Suitable for any amount of luggage',
+    s6p:'Spacious cars with large boot. Suitcases, sports equipment, prams — everything fits.',
+    ct_label:'Contact', ct_title:'Get in <em>touch</em>',
+    ct_phone_lbl:'Phone', ct_email_lbl:'Email',
+    ct_hours_lbl:'Working hours', ct_hours_val:'08:00 – 18:00', ct_days:'Monday – Sunday',
+    ct_loc_lbl:'Location', ct_loc_val:'Burgas, Bulgaria',
+    ct_wa_main:'Message us on WhatsApp', ct_vb_main:'Message us on Viber',
+    ct_phone_main:'Call us directly', ct_mail_main:'Send an email',
     ct_hours_note:'08:00–18:00 · every day',
-    f_sub:'Transfers | Burgas, Bulgaria',f_copy:'© OrionTaxi.com — Burgas. All rights reserved.',
-    cta_wa:'WhatsApp',cta_vb:'Viber',cta_call:'Call us',
+    f_sub:'Transfers | Burgas, Bulgaria', f_copy:'© OrionTaxi.com — Burgas. All rights reserved.',
+    cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Call us',
     routeKey:'Маршрут_EN',
+    fallback:[],
   },
   ru:{
     hero_tag:'Орион Такси — Бургас',
     hero_h1:'Люкс <em>трансферы</em>:<br>Болгария · Турция · Румыния',
     hero_sub:'Комфортное путешествие на представительных автомобилях.',
     hero_routes:'Бургас · Варна · София · Стамбул · Бухарест',
-    hero_wa:'WhatsApp',hero_vb:'Viber',hero_call:'+359 899 800 800',
-    t1:'Трансфер из аэропорта',t2:'Автомобили премиум',t3:'Круглосуточно',t4:'Болгария · Турция · Румыния',
+    hero_wa:'WhatsApp', hero_vb:'Viber', hero_call:'+359 899 800 800',
+    hero_mail:'oriontaxi.burgas@gmail.com',
+    t1:'Трансфер из аэропорта', t2:'Автомобили премиум', t3:'Круглосуточно', t4:'Болгария · Турция · Румыния',
     scroll:'Листать',
     routes_label:'Маршруты и цены',
     routes_title:'Направления и <em>ориентировочные цены</em>',
     routes_intro:'Выполняем трансферы между городами Болгарии, в аэропорт Стамбула и в Бухарест. Выберите маршрут и свяжитесь с нами для подтверждения и точной цены.',
     routes_loading:'Загрузка...',
     routes_note:'* Цены ориентировочные в евро для 1–3 пассажиров. Итоговая цена зависит от числа пассажиров, багажа и сезона.',
-    routes_from:'от',routes_to:'до',routes_lv:'€',
-    cta_ask_wa:'Запрос в WhatsApp',cta_call_short:'+359 899 800 800',
-    why_label:'Почему мы',why_title:'Более <em>10 лет</em> опыта',
-    why1:'лет опыта',why2:'довольных клиентов',why3:'доступность',why4:'представительные автомобили',why5:'отслеживаем рейсы в реальном времени',
-    fleet_label:'Наш парк',fleet_title:'Представительные <em>автомобили</em>',fleet_car1:'Наш парк',fleet_car2:'Наш парк',fleet_car3:'Наш парк',
-    svc_label:'Услуги',svc_title:'Что мы <em>предлагаем</em>',
-    s1h:'Автомобили премиум-класса',s1p:'Путешествуйте в комфортных представительных автомобилях с кондиционером.',
-    s2h:'Трансфер из аэропорта',s2p:'Встреча и проводы в аэропортах Бургаса, Варны, Софии, Стамбула и Бухареста.',
-    s3h:'Дальние маршруты',s3p:'Трансферы в Стамбул, Бухарест и любой город Болгарии по договорённости.',
-    s4h:'Круглосуточная доступность',s4p:'Свяжитесь с нами в любое время — WhatsApp, Viber или телефон.',
-    ct_label:'Контакты',ct_title:'Свяжитесь <em>с нами</em>',
-    ct_phone_lbl:'Телефон',ct_email_lbl:'Email',
-    ct_hours_lbl:'Рабочее время',ct_hours_val:'08:00 – 18:00',ct_days:'Понедельник – Воскресенье',
-    ct_loc_lbl:'Местонахождение',ct_loc_val:'Бургас, Болгария',
-    ct_wa_main:'Напишите нам в WhatsApp',ct_wa_sub:'Отвечаем быстро',
-    ct_vb_main:'Напишите нам в Viber',ct_vb_sub:'+359 899 800 800',
-    ct_phone_main:'Позвоните напрямую',ct_mail_main:'Отправить email',
+    routes_lv:'€',
+    cta_ask_wa:'Запрос в WhatsApp', cta_ask_vb:'Запрос в Viber',
+    cta_call_short:'+359 899 800 800', cta_mail_short:'oriontaxi.burgas@gmail.com',
+    why_label:'Почему мы', why_title:'Более <em>10 лет</em> опыта',
+    why1:'лет опыта', why2:'довольных клиентов', why3:'доступность', why4:'представительные автомобили', why5:'отслеживаем рейсы в реальном времени',
+    fleet_label:'Наш парк', fleet_title:'Представительные <em>автомобили</em>',
+    svc_label:'Услуги', svc_title:'Что мы <em>предлагаем</em>',
+    s1h:'Представительные автомобили с полным комфортом',
+    s1p:'Путешествуйте в роскошных автомобилях с кондиционером, просторным салоном и всеми удобствами.',
+    s2h:'Трансфер из аэропорта — отслеживаем рейсы в реальном времени',
+    s2p:'Встреча и проводы в аэропортах Бургаса, Варны, Софии, Стамбула и Бухареста. Ждём при задержке рейса.',
+    s3h:'Трансферы в Стамбул, Бухарест и по всей Болгарии',
+    s3p:'Дальние маршруты между городами Болгарии, в Стамбул и Бухарест. Любое направление по договорённости.',
+    s4h:'Предварительное бронирование с подтверждением',
+    s4p:'Забронируйте заранее и получите подтверждение. Уверенность, что автомобиль будет вовремя.',
+    s5h:'Подача к адресу — без поиска такси',
+    s5p:'Водитель приедет прямо по указанному адресу — отель, дом или офис. Без ожидания и лишних хлопот.',
+    s6h:'Подходит для любого багажа',
+    s6p:'Просторные автомобили с большим багажником. Чемоданы, спортивное снаряжение, коляски — всё поместится.',
+    ct_label:'Контакты', ct_title:'Свяжитесь <em>с нами</em>',
+    ct_phone_lbl:'Телефон', ct_email_lbl:'Email',
+    ct_hours_lbl:'Рабочее время', ct_hours_val:'08:00 – 18:00', ct_days:'Понедельник – Воскресенье',
+    ct_loc_lbl:'Местонахождение', ct_loc_val:'Бургас, Болгария',
+    ct_wa_main:'Напишите нам в WhatsApp', ct_vb_main:'Напишите нам в Viber',
+    ct_phone_main:'Позвоните напрямую', ct_mail_main:'Отправить email',
     ct_hours_note:'08:00–18:00 · каждый день',
-    f_sub:'Трансферы | Бургас, Болгария',f_copy:'© OrionTaxi.com — Бургас. Все права защищены.',
-    cta_wa:'WhatsApp',cta_vb:'Viber',cta_call:'Позвонить',
+    f_sub:'Трансферы | Бургас, Болгария', f_copy:'© OrionTaxi.com — Бургас. Все права защищены.',
+    cta_wa:'WhatsApp', cta_vb:'Viber', cta_call:'Позвонить',
     routeKey:'Маршрут_RU',
+    fallback:[],
   },
 };
 
 let lang = (()=>{ const b=navigator.language.slice(0,2).toLowerCase(); return b==='ru'?'ru':b==='en'?'en':'bg'; })();
 let pricesData = null;
 
-function waUrl(l){
-  const txt = l==='ru'?CONFIG.WA_RU:l==='en'?CONFIG.WA_EN:CONFIG.WA_BG;
-  return `https://wa.me/${CONFIG.PHONE}?text=${encodeURIComponent(txt)}`;
+// ── Lightbox ──
+function openLightbox(card){
+  const img = card.querySelector('img');
+  if(!img||card.classList.contains('empty'))return;
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeLightbox(); });
+
+// ── Fleet check ──
+function checkFleet(){
+  const cards = document.querySelectorAll('#fleet-section .fleet-card');
+  if([...cards].every(c=>c.classList.contains('empty'))){
+    document.getElementById('fleet-section').classList.add('all-empty');
+    const s = document.getElementById('fleet-sep');
+    if(s) s.style.display = 'none';
+  }
 }
 
-function isMobile(){
-  return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
-}
-function updateViberLinks(){
-  const viberUrl = isMobile()
-    ? 'viber://chat?number=%2B359899800800'
-    : 'https://viber.com/';
-  ['hero-vb','ct-vb'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.href=viberUrl;
-  });
-  document.querySelectorAll('.sb-vb').forEach(el=>el.href=viberUrl);
-}
-function updateWaLinks(l){
-  const url=waUrl(l);
+// ── Messenger links ──
+function isMobile(){ return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent); }
+
+function updateLinks(l){
+  const waText = l==='ru'?CONFIG.WA_RU : l==='en'?CONFIG.WA_EN : CONFIG.WA_BG;
+  const waUrl = `https://wa.me/${CONFIG.PHONE}?text=${encodeURIComponent(waText)}`;
+  const vbUrl = isMobile() ? 'viber://chat?number=%2B359899800800' : 'https://viber.com/';
   ['hero-wa','routes-wa','ct-wa','wa-float','sticky-wa'].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.href=url;
+    const el=document.getElementById(id); if(el) el.href=waUrl;
+  });
+  ['hero-vb','routes-vb','ct-vb','sticky-vb'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href=vbUrl;
   });
 }
 
+// ── Routes render ──
 function renderRoutes(l){
-  const t=T[l];
-  const container=document.getElementById('routes-container');
-  if(!container)return;
-  if(!pricesData&&!T[l].routes){container.innerHTML=`<div class="routes-loading">${t.routes_loading}</div>`;return;}
+  const t = T[l];
+  const container = document.getElementById('routes-container');
+  if(!container) return;
 
-  const data = pricesData || T[l].routes.map(r=>({
-    name: l==='ru'?r.ru:l==='en'?r.en:r.bg,
-    from: r.from, to: r.to, on: r.on
-  }));
+  let rows = [];
+  if(pricesData && pricesData.length > 0){
+    const rk = t.routeKey;
+    rows = pricesData.map(r=>({
+      name: r[rk] || r['Маршрут_BG'] || '',
+      from: r['Цена_от'] || '',
+      to:   r['Цена_до'] || '',
+    })).filter(r=>r.name);
+  } else if(t.fallback && t.fallback.length > 0){
+    rows = t.fallback.map(r=>({name:r.n, from:String(r.f), to:String(r.t)}));
+  }
 
-  // If Sheets data
-  const routeKey = l==='ru'?'Маршрут_RU':l==='en'?'Маршрут_EN':'Маршрут_BG';
-  let html='<div class="routes-grid">';
-  const src = pricesData ? pricesData : T[l].routes.map(r=>({
-    [routeKey]: l==='ru'?r.ru:l==='en'?r.en:r.bg,
-    Цена_от: String(r.from), Цена_до: String(r.to), Активна:'ДА'
-  }));
+  if(!rows.length){ container.innerHTML=''; return; }
 
-  src.forEach(r=>{
-    const a=(r.Активна||'').toUpperCase();
-    if(a==='НЕ'||a==='NO')return;
-    const name = r[routeKey]||r['Маршрут_BG']||'';
-    const from = r['Цена_от']||'';
-    const to   = r['Цена_до']||'';
-    html+=`<div class="route-card">
-      <div class="route-left"><span class="route-arrow">→</span><span class="route-name">${name}</span></div>
-      <div class="route-price">${from}–${to} <span>${t.routes_lv}</span></div>
+  let html = '<div class="routes-grid">';
+  rows.forEach(r=>{
+    html += `<div class="route-card">
+      <div class="route-left"><span class="route-arrow">→</span><span class="route-name">${r.name}</span></div>
+      <div class="route-price">${r.from}–${r.to} <span>${t.routes_lv}</span></div>
     </div>`;
   });
-  html+='</div>';
-  container.innerHTML=html;
+  html += '</div>';
+  container.innerHTML = html;
   observeEls();
 }
 
+// ── CSV parse ──
 function parseCSV(text){
-  const lines=text.trim().split('\n');
-  // Намери реда с Маршрут_BG — може да не е първи ред
-  let headerIdx=lines.findIndex(l=>l.includes('Маршрут_BG'));
-  if(headerIdx<0)headerIdx=0;
-  const headers=lines[headerIdx].split(',').map(h=>h.trim().replace(/"/g,'').replace(/\s*\(.*?\)/g,''));
+  const lines = text.trim().split('\n');
+  let headerIdx = lines.findIndex(l=>l.includes('Маршрут_BG'));
+  if(headerIdx < 0) headerIdx = 0;
+  const headers = lines[headerIdx].split(',').map(h=>h.trim().replace(/"/g,'').replace(/\s*\(.*?\)/g,''));
   return lines.slice(headerIdx+1).map(line=>{
-    if(!line.trim())return null;
-    const cols=line.split(',').map(c=>c.trim().replace(/"/g,''));
-    const obj={};headers.forEach((h,i)=>obj[h]=cols[i]||'');
+    if(!line.trim()) return null;
+    const cols = line.split(',').map(c=>c.trim().replace(/"/g,''));
+    const obj = {}; headers.forEach((h,i)=>obj[h]=cols[i]||'');
     return obj;
   }).filter(r=>{
-    if(!r)return false;
-    const name=(r['Маршрут_BG']||'').trim();
-    const aktiv=(r['Активна']||'').trim().toUpperCase();
-    // Само редове с валидно кирилско/латинско начало
-    if(!name)return false;
-    if(name.length>50)return false;
-    if(!/^[А-Яа-яёЁA-Za-z]/.test(name))return false;
-    // Само ДА показваме — НЕ скрива
-    if(aktiv!=='ДА'&&aktiv!=='DA'&&aktiv!=='YES')return false;
+    if(!r) return false;
+    const name = (r['Маршрут_BG']||'').trim();
+    const aktiv = (r['Активна']||'').trim().toUpperCase();
+    if(!name || name.length > 50) return false;
+    if(!/^[А-Яа-яёЁA-Za-z]/.test(name)) return false;
+    if(aktiv !== 'ДА' && aktiv !== 'DA' && aktiv !== 'YES') return false;
     return true;
   });
 }
 
 function loadPrices(){
-  if(!CONFIG.SHEETS_URL||CONFIG.SHEETS_URL.includes('ВАШИЯТ')){
-    pricesData=null;renderRoutes(lang);return;
-  }
   fetch(CONFIG.SHEETS_URL)
-    .then(r=>{if(!r.ok)throw new Error();return r.text();})
-    .then(csv=>{pricesData=parseCSV(csv);renderRoutes(lang);})
-    .catch(()=>{pricesData=null;renderRoutes(lang);});
+    .then(r=>{ if(!r.ok) throw new Error(); return r.text(); })
+    .then(csv=>{ pricesData=parseCSV(csv); renderRoutes(lang); })
+    .catch(()=>{ pricesData=null; renderRoutes(lang); });
 }
 
+// ── Translations ──
 function applyT(l){
-  const t=T[l];
+  const t = T[l];
   document.querySelectorAll('[data-t]').forEach(el=>{
-    const k=el.getAttribute('data-t');if(t[k]!==undefined)el.innerHTML=t[k];
+    const k = el.getAttribute('data-t');
+    if(t[k] !== undefined) el.innerHTML = t[k];
   });
-  // hero-routes special (em element)
-  const hr=document.querySelector('[data-t="hero_routes"]');
-  if(hr)hr.textContent=t.hero_routes;
-  updateWaLinks(l);
+  updateLinks(l);
   renderRoutes(l);
 }
 
-function setLang(l,btn){
-  lang=l;
+function setLang(l, btn){
+  lang = l;
   document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   applyT(l);
 }
 
-// Scroll observer
-const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:.07});
+// ── Scroll observer ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.07});
+
 function observeEls(){
-  document.querySelectorAll('.svc-card,.route-card,.contact-row,.why-card,.fleet-card:not(.empty)').forEach((el,i)=>{
-    el.style.opacity='0';el.style.transform='translateY(14px)';
-    el.style.transition=`opacity .42s ease ${i*.035}s,transform .42s ease ${i*.035}s`;
+  document.querySelectorAll('.svc-item,.route-card,.contact-row,.why-card,.fleet-card:not(.empty)').forEach((el,i)=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(14px)';
+    el.style.transition=`opacity .42s ease ${i*.03}s, transform .42s ease ${i*.03}s`;
     obs.observe(el);
   });
 }
 
-// Init
+// ── Init ──
 applyT(lang);
 loadPrices();
 observeEls();
-updateViberLinks();
 </script>
 </body>
 </html>
